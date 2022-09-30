@@ -1,0 +1,18 @@
+ <?xml version="1.0" encoding="UTF-8" ?>
+ <rss version="2.0">
+ <channel>
+  <title>Diario El Litoral</title>
+  <description>Noticias de Corrientes, Argentina y el mundo.</description>
+  <link>https://www.ellitoral.com.ar//</link>
+  <lastBuildDate>29 de mayo de 2022, 21:45</lastBuildDate>
+
+ 
+  <item>
+   <title>Corte en el puente general Belgrano</title>
+   <description>Una vez mas el tráfico fue interrumpido por un corte en el puente</description>
+   <link>https://www.ellitoral.com.ar/corrientes/2022-5-22-0-55-0-hubo-demoras-en-el-transito-del-puente-general-belgrano/</link>
+     <pubDate>26 de mayo de 2022</pubDate>
+  </item>
+
+</channel>
+ </rss>

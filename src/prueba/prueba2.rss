@@ -1,0 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8" ?>
+ <rss version="2.0">
+ <channel>
+<title>Título del RSS:+</title>
+<description>Descripción del RSS
+</description><link>http://www.sitiodelquesedeseapublicar.com/main.html</link>
+<lastBuildDate>Mon, 06 Jan 2013 00:01:00 +00:00 </lastBuildDate>
+  <item>
+   <title>Entrada dentro del RSS</title>
+   <description>Descripción de la entrada</description>
+   <link>http://www.sitiodelquesedeseapublicar.com/enero-2013.html</link>
+   <guid>clave única</guid>
+  </item>
+
+</channel>
+ </rss>

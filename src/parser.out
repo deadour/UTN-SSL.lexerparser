@@ -1,0 +1,1256 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> sigma
+Rule 1     sigma -> aperturaxml aperturarss
+Rule 2     aperturaxml -> APERTURA_XML VERSION_XML ENCODING_VERSION CIERRE_XML
+Rule 3     aperturarss -> APERTURA_RSS VERSION_RSS canal CIERRE_RSS
+Rule 4     canal -> APERTURA_CHANNEL titulo LINK desc item CIERRE_CHANNEL
+Rule 5     canal -> APERTURA_CHANNEL titulo desc LINK item CIERRE_CHANNEL
+Rule 6     canal -> APERTURA_CHANNEL titulo LINK desc opc item CIERRE_CHANNEL
+Rule 7     canal -> APERTURA_CHANNEL titulo desc LINK opc item CIERRE_CHANNEL
+Rule 8     item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+Rule 9     item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+Rule 10    item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+Rule 11    item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+Rule 12    item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+Rule 13    item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+Rule 14    item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+Rule 15    item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+Rule 16    titulo -> APERTURA_TITLE TXT CIERRE_TITLE
+Rule 17    LINK -> APERTURA_LINK URL CIERRE_LINK
+Rule 18    desc -> APERTURA_DESC TXT CIERRE_DESC
+Rule 19    opc -> categoria
+Rule 20    categoria -> APERTURA_CAT TXT CIERRE_CAT
+Rule 21    opc -> copyright
+Rule 22    copyright -> APERTURA_COPY TXT CIERRE_COPY
+Rule 23    opc -> image
+Rule 24    image -> APERTURA_IMAG URL titulo LINK CIERRE_IMAG
+Rule 25    image -> APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG
+Rule 26    opcimag -> height width
+Rule 27    opcimag -> height
+Rule 28    opcimag -> width
+Rule 29    height -> APERTURA_HEIGHT NUM CIERRE_HEIGHT
+Rule 30    width -> APERTURA_WIDTH NUM CIERRE_WIDTH
+Rule 31    opc -> lenguaje
+Rule 32    lenguaje -> APERTURA_LANGUAGE TXT CIERRE_LANGUAGE
+Rule 33    opc -> webmaster
+Rule 34    webmaster -> APERTURA_WEBMASTER TXT CIERRE_WEBMASTER
+Rule 35    opc -> ultedit
+Rule 36    ultedit -> APERTURA_ULTEDIT TXT CIERRE_ULTEDIT
+Rule 37    opc -> autor
+Rule 38    autor -> APERTURA_AUTOR TXT CIERRE_AUTOR
+Rule 39    opc -> lastbuilddate
+Rule 40    lastbuilddate -> APERTURA_BD TXT CIERRE_BD
+Rule 41    opc -> guid
+Rule 42    guid -> APERTURA_GUID TXT CIERRE_GUID
+Rule 43    opc -> ttl
+Rule 44    ttl -> APERTURA_TTL TXT CIERRE_TTL
+
+Terminals, with rules where they appear
+
+APERTURA_AUTOR       : 38
+APERTURA_BD          : 40
+APERTURA_CAT         : 20
+APERTURA_CHANNEL     : 4 5 6 7
+APERTURA_COPY        : 22
+APERTURA_DESC        : 18
+APERTURA_GUID        : 42
+APERTURA_HEIGHT      : 29
+APERTURA_IMAG        : 24 25
+APERTURA_ITEM        : 8 9 10 11 12 13 14 15
+APERTURA_LANGUAGE    : 32
+APERTURA_LINK        : 17
+APERTURA_RSS         : 3
+APERTURA_TITLE       : 16
+APERTURA_TTL         : 44
+APERTURA_ULTEDIT     : 36
+APERTURA_WEBMASTER   : 34
+APERTURA_WIDTH       : 30
+APERTURA_XML         : 2
+CIERRE_AUTOR         : 38
+CIERRE_BD            : 40
+CIERRE_CAT           : 20
+CIERRE_CHANNEL       : 4 5 6 7
+CIERRE_COPY          : 22
+CIERRE_DESC          : 18
+CIERRE_GUID          : 42
+CIERRE_HEIGHT        : 29
+CIERRE_IMAG          : 24 25
+CIERRE_ITEM          : 8 9 10 11 12 13 14 15
+CIERRE_LANGUAGE      : 32
+CIERRE_LINK          : 17
+CIERRE_RSS           : 3
+CIERRE_TITLE         : 16
+CIERRE_TTL           : 44
+CIERRE_ULTEDIT       : 36
+CIERRE_WEBMASTER     : 34
+CIERRE_WIDTH         : 30
+CIERRE_XML           : 2
+ENCODING_VERSION     : 2
+NUM                  : 29 30
+TXT                  : 16 18 20 22 32 34 36 38 40 42 44
+URL                  : 17 24 25
+VERSION_RSS          : 3
+VERSION_XML          : 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+LINK                 : 4 5 6 7 8 9 10 11 12 13 14 15 24 25
+aperturarss          : 1
+aperturaxml          : 1
+autor                : 37
+canal                : 3
+categoria            : 19
+copyright            : 21
+desc                 : 4 5 6 7 8 9 10 11 12 13 14 15
+guid                 : 41
+height               : 26 27
+image                : 23
+item                 : 4 5 6 7 10 11 14 15
+lastbuilddate        : 39
+lenguaje             : 31
+opc                  : 6 7 12 13 14 15
+opcimag              : 25
+sigma                : 0
+titulo               : 4 5 6 7 8 9 10 11 12 13 14 15 24 25
+ttl                  : 43
+ultedit              : 35
+webmaster            : 33
+width                : 26 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . sigma
+    (1) sigma -> . aperturaxml aperturarss
+    (2) aperturaxml -> . APERTURA_XML VERSION_XML ENCODING_VERSION CIERRE_XML
+
+    APERTURA_XML    shift and go to state 3
+
+    sigma                          shift and go to state 1
+    aperturaxml                    shift and go to state 2
+
+state 1
+
+    (0) S' -> sigma .
+
+
+
+state 2
+
+    (1) sigma -> aperturaxml . aperturarss
+    (3) aperturarss -> . APERTURA_RSS VERSION_RSS canal CIERRE_RSS
+
+    APERTURA_RSS    shift and go to state 5
+
+    aperturarss                    shift and go to state 4
+
+state 3
+
+    (2) aperturaxml -> APERTURA_XML . VERSION_XML ENCODING_VERSION CIERRE_XML
+
+    VERSION_XML     shift and go to state 6
+
+
+state 4
+
+    (1) sigma -> aperturaxml aperturarss .
+
+    $end            reduce using rule 1 (sigma -> aperturaxml aperturarss .)
+
+
+state 5
+
+    (3) aperturarss -> APERTURA_RSS . VERSION_RSS canal CIERRE_RSS
+
+    VERSION_RSS     shift and go to state 7
+
+
+state 6
+
+    (2) aperturaxml -> APERTURA_XML VERSION_XML . ENCODING_VERSION CIERRE_XML
+
+    ENCODING_VERSION shift and go to state 8
+
+
+state 7
+
+    (3) aperturarss -> APERTURA_RSS VERSION_RSS . canal CIERRE_RSS
+    (4) canal -> . APERTURA_CHANNEL titulo LINK desc item CIERRE_CHANNEL
+    (5) canal -> . APERTURA_CHANNEL titulo desc LINK item CIERRE_CHANNEL
+    (6) canal -> . APERTURA_CHANNEL titulo LINK desc opc item CIERRE_CHANNEL
+    (7) canal -> . APERTURA_CHANNEL titulo desc LINK opc item CIERRE_CHANNEL
+
+    APERTURA_CHANNEL shift and go to state 10
+
+    canal                          shift and go to state 9
+
+state 8
+
+    (2) aperturaxml -> APERTURA_XML VERSION_XML ENCODING_VERSION . CIERRE_XML
+
+    CIERRE_XML      shift and go to state 11
+
+
+state 9
+
+    (3) aperturarss -> APERTURA_RSS VERSION_RSS canal . CIERRE_RSS
+
+    CIERRE_RSS      shift and go to state 12
+
+
+state 10
+
+    (4) canal -> APERTURA_CHANNEL . titulo LINK desc item CIERRE_CHANNEL
+    (5) canal -> APERTURA_CHANNEL . titulo desc LINK item CIERRE_CHANNEL
+    (6) canal -> APERTURA_CHANNEL . titulo LINK desc opc item CIERRE_CHANNEL
+    (7) canal -> APERTURA_CHANNEL . titulo desc LINK opc item CIERRE_CHANNEL
+    (16) titulo -> . APERTURA_TITLE TXT CIERRE_TITLE
+
+    APERTURA_TITLE  shift and go to state 14
+
+    titulo                         shift and go to state 13
+
+state 11
+
+    (2) aperturaxml -> APERTURA_XML VERSION_XML ENCODING_VERSION CIERRE_XML .
+
+    APERTURA_RSS    reduce using rule 2 (aperturaxml -> APERTURA_XML VERSION_XML ENCODING_VERSION CIERRE_XML .)
+
+
+state 12
+
+    (3) aperturarss -> APERTURA_RSS VERSION_RSS canal CIERRE_RSS .
+
+    $end            reduce using rule 3 (aperturarss -> APERTURA_RSS VERSION_RSS canal CIERRE_RSS .)
+
+
+state 13
+
+    (4) canal -> APERTURA_CHANNEL titulo . LINK desc item CIERRE_CHANNEL
+    (5) canal -> APERTURA_CHANNEL titulo . desc LINK item CIERRE_CHANNEL
+    (6) canal -> APERTURA_CHANNEL titulo . LINK desc opc item CIERRE_CHANNEL
+    (7) canal -> APERTURA_CHANNEL titulo . desc LINK opc item CIERRE_CHANNEL
+    (17) LINK -> . APERTURA_LINK URL CIERRE_LINK
+    (18) desc -> . APERTURA_DESC TXT CIERRE_DESC
+
+    APERTURA_LINK   shift and go to state 17
+    APERTURA_DESC   shift and go to state 18
+
+    LINK                           shift and go to state 15
+    desc                           shift and go to state 16
+
+state 14
+
+    (16) titulo -> APERTURA_TITLE . TXT CIERRE_TITLE
+
+    TXT             shift and go to state 19
+
+
+state 15
+
+    (4) canal -> APERTURA_CHANNEL titulo LINK . desc item CIERRE_CHANNEL
+    (6) canal -> APERTURA_CHANNEL titulo LINK . desc opc item CIERRE_CHANNEL
+    (18) desc -> . APERTURA_DESC TXT CIERRE_DESC
+
+    APERTURA_DESC   shift and go to state 18
+
+    desc                           shift and go to state 20
+
+state 16
+
+    (5) canal -> APERTURA_CHANNEL titulo desc . LINK item CIERRE_CHANNEL
+    (7) canal -> APERTURA_CHANNEL titulo desc . LINK opc item CIERRE_CHANNEL
+    (17) LINK -> . APERTURA_LINK URL CIERRE_LINK
+
+    APERTURA_LINK   shift and go to state 17
+
+    LINK                           shift and go to state 21
+
+state 17
+
+    (17) LINK -> APERTURA_LINK . URL CIERRE_LINK
+
+    URL             shift and go to state 22
+
+
+state 18
+
+    (18) desc -> APERTURA_DESC . TXT CIERRE_DESC
+
+    TXT             shift and go to state 23
+
+
+state 19
+
+    (16) titulo -> APERTURA_TITLE TXT . CIERRE_TITLE
+
+    CIERRE_TITLE    shift and go to state 24
+
+
+state 20
+
+    (4) canal -> APERTURA_CHANNEL titulo LINK desc . item CIERRE_CHANNEL
+    (6) canal -> APERTURA_CHANNEL titulo LINK desc . opc item CIERRE_CHANNEL
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+    (19) opc -> . categoria
+    (21) opc -> . copyright
+    (23) opc -> . image
+    (31) opc -> . lenguaje
+    (33) opc -> . webmaster
+    (35) opc -> . ultedit
+    (37) opc -> . autor
+    (39) opc -> . lastbuilddate
+    (41) opc -> . guid
+    (43) opc -> . ttl
+    (20) categoria -> . APERTURA_CAT TXT CIERRE_CAT
+    (22) copyright -> . APERTURA_COPY TXT CIERRE_COPY
+    (24) image -> . APERTURA_IMAG URL titulo LINK CIERRE_IMAG
+    (25) image -> . APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG
+    (32) lenguaje -> . APERTURA_LANGUAGE TXT CIERRE_LANGUAGE
+    (34) webmaster -> . APERTURA_WEBMASTER TXT CIERRE_WEBMASTER
+    (36) ultedit -> . APERTURA_ULTEDIT TXT CIERRE_ULTEDIT
+    (38) autor -> . APERTURA_AUTOR TXT CIERRE_AUTOR
+    (40) lastbuilddate -> . APERTURA_BD TXT CIERRE_BD
+    (42) guid -> . APERTURA_GUID TXT CIERRE_GUID
+    (44) ttl -> . APERTURA_TTL TXT CIERRE_TTL
+
+    APERTURA_ITEM   shift and go to state 27
+    APERTURA_CAT    shift and go to state 38
+    APERTURA_COPY   shift and go to state 39
+    APERTURA_IMAG   shift and go to state 40
+    APERTURA_LANGUAGE shift and go to state 41
+    APERTURA_WEBMASTER shift and go to state 42
+    APERTURA_ULTEDIT shift and go to state 43
+    APERTURA_AUTOR  shift and go to state 44
+    APERTURA_BD     shift and go to state 45
+    APERTURA_GUID   shift and go to state 46
+    APERTURA_TTL    shift and go to state 47
+
+    item                           shift and go to state 25
+    opc                            shift and go to state 26
+    categoria                      shift and go to state 28
+    copyright                      shift and go to state 29
+    image                          shift and go to state 30
+    lenguaje                       shift and go to state 31
+    webmaster                      shift and go to state 32
+    ultedit                        shift and go to state 33
+    autor                          shift and go to state 34
+    lastbuilddate                  shift and go to state 35
+    guid                           shift and go to state 36
+    ttl                            shift and go to state 37
+
+state 21
+
+    (5) canal -> APERTURA_CHANNEL titulo desc LINK . item CIERRE_CHANNEL
+    (7) canal -> APERTURA_CHANNEL titulo desc LINK . opc item CIERRE_CHANNEL
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+    (19) opc -> . categoria
+    (21) opc -> . copyright
+    (23) opc -> . image
+    (31) opc -> . lenguaje
+    (33) opc -> . webmaster
+    (35) opc -> . ultedit
+    (37) opc -> . autor
+    (39) opc -> . lastbuilddate
+    (41) opc -> . guid
+    (43) opc -> . ttl
+    (20) categoria -> . APERTURA_CAT TXT CIERRE_CAT
+    (22) copyright -> . APERTURA_COPY TXT CIERRE_COPY
+    (24) image -> . APERTURA_IMAG URL titulo LINK CIERRE_IMAG
+    (25) image -> . APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG
+    (32) lenguaje -> . APERTURA_LANGUAGE TXT CIERRE_LANGUAGE
+    (34) webmaster -> . APERTURA_WEBMASTER TXT CIERRE_WEBMASTER
+    (36) ultedit -> . APERTURA_ULTEDIT TXT CIERRE_ULTEDIT
+    (38) autor -> . APERTURA_AUTOR TXT CIERRE_AUTOR
+    (40) lastbuilddate -> . APERTURA_BD TXT CIERRE_BD
+    (42) guid -> . APERTURA_GUID TXT CIERRE_GUID
+    (44) ttl -> . APERTURA_TTL TXT CIERRE_TTL
+
+    APERTURA_ITEM   shift and go to state 27
+    APERTURA_CAT    shift and go to state 38
+    APERTURA_COPY   shift and go to state 39
+    APERTURA_IMAG   shift and go to state 40
+    APERTURA_LANGUAGE shift and go to state 41
+    APERTURA_WEBMASTER shift and go to state 42
+    APERTURA_ULTEDIT shift and go to state 43
+    APERTURA_AUTOR  shift and go to state 44
+    APERTURA_BD     shift and go to state 45
+    APERTURA_GUID   shift and go to state 46
+    APERTURA_TTL    shift and go to state 47
+
+    item                           shift and go to state 48
+    opc                            shift and go to state 49
+    categoria                      shift and go to state 28
+    copyright                      shift and go to state 29
+    image                          shift and go to state 30
+    lenguaje                       shift and go to state 31
+    webmaster                      shift and go to state 32
+    ultedit                        shift and go to state 33
+    autor                          shift and go to state 34
+    lastbuilddate                  shift and go to state 35
+    guid                           shift and go to state 36
+    ttl                            shift and go to state 37
+
+state 22
+
+    (17) LINK -> APERTURA_LINK URL . CIERRE_LINK
+
+    CIERRE_LINK     shift and go to state 50
+
+
+state 23
+
+    (18) desc -> APERTURA_DESC TXT . CIERRE_DESC
+
+    CIERRE_DESC     shift and go to state 51
+
+
+state 24
+
+    (16) titulo -> APERTURA_TITLE TXT CIERRE_TITLE .
+
+    APERTURA_LINK   reduce using rule 16 (titulo -> APERTURA_TITLE TXT CIERRE_TITLE .)
+    APERTURA_DESC   reduce using rule 16 (titulo -> APERTURA_TITLE TXT CIERRE_TITLE .)
+
+
+state 25
+
+    (4) canal -> APERTURA_CHANNEL titulo LINK desc item . CIERRE_CHANNEL
+
+    CIERRE_CHANNEL  shift and go to state 52
+
+
+state 26
+
+    (6) canal -> APERTURA_CHANNEL titulo LINK desc opc . item CIERRE_CHANNEL
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 53
+
+state 27
+
+    (8) item -> APERTURA_ITEM . titulo LINK desc CIERRE_ITEM
+    (9) item -> APERTURA_ITEM . titulo desc LINK CIERRE_ITEM
+    (10) item -> APERTURA_ITEM . titulo LINK desc CIERRE_ITEM item
+    (11) item -> APERTURA_ITEM . titulo desc LINK CIERRE_ITEM item
+    (12) item -> APERTURA_ITEM . titulo LINK desc opc CIERRE_ITEM
+    (13) item -> APERTURA_ITEM . titulo desc LINK opc CIERRE_ITEM
+    (14) item -> APERTURA_ITEM . titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> APERTURA_ITEM . titulo desc LINK opc CIERRE_ITEM item
+    (16) titulo -> . APERTURA_TITLE TXT CIERRE_TITLE
+
+    APERTURA_TITLE  shift and go to state 14
+
+    titulo                         shift and go to state 54
+
+state 28
+
+    (19) opc -> categoria .
+
+    APERTURA_ITEM   reduce using rule 19 (opc -> categoria .)
+    CIERRE_ITEM     reduce using rule 19 (opc -> categoria .)
+
+
+state 29
+
+    (21) opc -> copyright .
+
+    APERTURA_ITEM   reduce using rule 21 (opc -> copyright .)
+    CIERRE_ITEM     reduce using rule 21 (opc -> copyright .)
+
+
+state 30
+
+    (23) opc -> image .
+
+    APERTURA_ITEM   reduce using rule 23 (opc -> image .)
+    CIERRE_ITEM     reduce using rule 23 (opc -> image .)
+
+
+state 31
+
+    (31) opc -> lenguaje .
+
+    APERTURA_ITEM   reduce using rule 31 (opc -> lenguaje .)
+    CIERRE_ITEM     reduce using rule 31 (opc -> lenguaje .)
+
+
+state 32
+
+    (33) opc -> webmaster .
+
+    APERTURA_ITEM   reduce using rule 33 (opc -> webmaster .)
+    CIERRE_ITEM     reduce using rule 33 (opc -> webmaster .)
+
+
+state 33
+
+    (35) opc -> ultedit .
+
+    APERTURA_ITEM   reduce using rule 35 (opc -> ultedit .)
+    CIERRE_ITEM     reduce using rule 35 (opc -> ultedit .)
+
+
+state 34
+
+    (37) opc -> autor .
+
+    APERTURA_ITEM   reduce using rule 37 (opc -> autor .)
+    CIERRE_ITEM     reduce using rule 37 (opc -> autor .)
+
+
+state 35
+
+    (39) opc -> lastbuilddate .
+
+    APERTURA_ITEM   reduce using rule 39 (opc -> lastbuilddate .)
+    CIERRE_ITEM     reduce using rule 39 (opc -> lastbuilddate .)
+
+
+state 36
+
+    (41) opc -> guid .
+
+    APERTURA_ITEM   reduce using rule 41 (opc -> guid .)
+    CIERRE_ITEM     reduce using rule 41 (opc -> guid .)
+
+
+state 37
+
+    (43) opc -> ttl .
+
+    APERTURA_ITEM   reduce using rule 43 (opc -> ttl .)
+    CIERRE_ITEM     reduce using rule 43 (opc -> ttl .)
+
+
+state 38
+
+    (20) categoria -> APERTURA_CAT . TXT CIERRE_CAT
+
+    TXT             shift and go to state 55
+
+
+state 39
+
+    (22) copyright -> APERTURA_COPY . TXT CIERRE_COPY
+
+    TXT             shift and go to state 56
+
+
+state 40
+
+    (24) image -> APERTURA_IMAG . URL titulo LINK CIERRE_IMAG
+    (25) image -> APERTURA_IMAG . URL titulo LINK opcimag CIERRE_IMAG
+
+    URL             shift and go to state 57
+
+
+state 41
+
+    (32) lenguaje -> APERTURA_LANGUAGE . TXT CIERRE_LANGUAGE
+
+    TXT             shift and go to state 58
+
+
+state 42
+
+    (34) webmaster -> APERTURA_WEBMASTER . TXT CIERRE_WEBMASTER
+
+    TXT             shift and go to state 59
+
+
+state 43
+
+    (36) ultedit -> APERTURA_ULTEDIT . TXT CIERRE_ULTEDIT
+
+    TXT             shift and go to state 60
+
+
+state 44
+
+    (38) autor -> APERTURA_AUTOR . TXT CIERRE_AUTOR
+
+    TXT             shift and go to state 61
+
+
+state 45
+
+    (40) lastbuilddate -> APERTURA_BD . TXT CIERRE_BD
+
+    TXT             shift and go to state 62
+
+
+state 46
+
+    (42) guid -> APERTURA_GUID . TXT CIERRE_GUID
+
+    TXT             shift and go to state 63
+
+
+state 47
+
+    (44) ttl -> APERTURA_TTL . TXT CIERRE_TTL
+
+    TXT             shift and go to state 64
+
+
+state 48
+
+    (5) canal -> APERTURA_CHANNEL titulo desc LINK item . CIERRE_CHANNEL
+
+    CIERRE_CHANNEL  shift and go to state 65
+
+
+state 49
+
+    (7) canal -> APERTURA_CHANNEL titulo desc LINK opc . item CIERRE_CHANNEL
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 66
+
+state 50
+
+    (17) LINK -> APERTURA_LINK URL CIERRE_LINK .
+
+    APERTURA_DESC   reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_ITEM   reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_CAT    reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_COPY   reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_IMAG   reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_LANGUAGE reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_WEBMASTER reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_ULTEDIT reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_AUTOR  reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_BD     reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_GUID   reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_TTL    reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    CIERRE_ITEM     reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    CIERRE_IMAG     reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_HEIGHT reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+    APERTURA_WIDTH  reduce using rule 17 (LINK -> APERTURA_LINK URL CIERRE_LINK .)
+
+
+state 51
+
+    (18) desc -> APERTURA_DESC TXT CIERRE_DESC .
+
+    APERTURA_LINK   reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_ITEM   reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_CAT    reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_COPY   reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_IMAG   reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_LANGUAGE reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_WEBMASTER reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_ULTEDIT reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_AUTOR  reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_BD     reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_GUID   reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    APERTURA_TTL    reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+    CIERRE_ITEM     reduce using rule 18 (desc -> APERTURA_DESC TXT CIERRE_DESC .)
+
+
+state 52
+
+    (4) canal -> APERTURA_CHANNEL titulo LINK desc item CIERRE_CHANNEL .
+
+    CIERRE_RSS      reduce using rule 4 (canal -> APERTURA_CHANNEL titulo LINK desc item CIERRE_CHANNEL .)
+
+
+state 53
+
+    (6) canal -> APERTURA_CHANNEL titulo LINK desc opc item . CIERRE_CHANNEL
+
+    CIERRE_CHANNEL  shift and go to state 67
+
+
+state 54
+
+    (8) item -> APERTURA_ITEM titulo . LINK desc CIERRE_ITEM
+    (9) item -> APERTURA_ITEM titulo . desc LINK CIERRE_ITEM
+    (10) item -> APERTURA_ITEM titulo . LINK desc CIERRE_ITEM item
+    (11) item -> APERTURA_ITEM titulo . desc LINK CIERRE_ITEM item
+    (12) item -> APERTURA_ITEM titulo . LINK desc opc CIERRE_ITEM
+    (13) item -> APERTURA_ITEM titulo . desc LINK opc CIERRE_ITEM
+    (14) item -> APERTURA_ITEM titulo . LINK desc opc CIERRE_ITEM item
+    (15) item -> APERTURA_ITEM titulo . desc LINK opc CIERRE_ITEM item
+    (17) LINK -> . APERTURA_LINK URL CIERRE_LINK
+    (18) desc -> . APERTURA_DESC TXT CIERRE_DESC
+
+    APERTURA_LINK   shift and go to state 17
+    APERTURA_DESC   shift and go to state 18
+
+    LINK                           shift and go to state 68
+    desc                           shift and go to state 69
+
+state 55
+
+    (20) categoria -> APERTURA_CAT TXT . CIERRE_CAT
+
+    CIERRE_CAT      shift and go to state 70
+
+
+state 56
+
+    (22) copyright -> APERTURA_COPY TXT . CIERRE_COPY
+
+    CIERRE_COPY     shift and go to state 71
+
+
+state 57
+
+    (24) image -> APERTURA_IMAG URL . titulo LINK CIERRE_IMAG
+    (25) image -> APERTURA_IMAG URL . titulo LINK opcimag CIERRE_IMAG
+    (16) titulo -> . APERTURA_TITLE TXT CIERRE_TITLE
+
+    APERTURA_TITLE  shift and go to state 14
+
+    titulo                         shift and go to state 72
+
+state 58
+
+    (32) lenguaje -> APERTURA_LANGUAGE TXT . CIERRE_LANGUAGE
+
+    CIERRE_LANGUAGE shift and go to state 73
+
+
+state 59
+
+    (34) webmaster -> APERTURA_WEBMASTER TXT . CIERRE_WEBMASTER
+
+    CIERRE_WEBMASTER shift and go to state 74
+
+
+state 60
+
+    (36) ultedit -> APERTURA_ULTEDIT TXT . CIERRE_ULTEDIT
+
+    CIERRE_ULTEDIT  shift and go to state 75
+
+
+state 61
+
+    (38) autor -> APERTURA_AUTOR TXT . CIERRE_AUTOR
+
+    CIERRE_AUTOR    shift and go to state 76
+
+
+state 62
+
+    (40) lastbuilddate -> APERTURA_BD TXT . CIERRE_BD
+
+    CIERRE_BD       shift and go to state 77
+
+
+state 63
+
+    (42) guid -> APERTURA_GUID TXT . CIERRE_GUID
+
+    CIERRE_GUID     shift and go to state 78
+
+
+state 64
+
+    (44) ttl -> APERTURA_TTL TXT . CIERRE_TTL
+
+    CIERRE_TTL      shift and go to state 79
+
+
+state 65
+
+    (5) canal -> APERTURA_CHANNEL titulo desc LINK item CIERRE_CHANNEL .
+
+    CIERRE_RSS      reduce using rule 5 (canal -> APERTURA_CHANNEL titulo desc LINK item CIERRE_CHANNEL .)
+
+
+state 66
+
+    (7) canal -> APERTURA_CHANNEL titulo desc LINK opc item . CIERRE_CHANNEL
+
+    CIERRE_CHANNEL  shift and go to state 80
+
+
+state 67
+
+    (6) canal -> APERTURA_CHANNEL titulo LINK desc opc item CIERRE_CHANNEL .
+
+    CIERRE_RSS      reduce using rule 6 (canal -> APERTURA_CHANNEL titulo LINK desc opc item CIERRE_CHANNEL .)
+
+
+state 68
+
+    (8) item -> APERTURA_ITEM titulo LINK . desc CIERRE_ITEM
+    (10) item -> APERTURA_ITEM titulo LINK . desc CIERRE_ITEM item
+    (12) item -> APERTURA_ITEM titulo LINK . desc opc CIERRE_ITEM
+    (14) item -> APERTURA_ITEM titulo LINK . desc opc CIERRE_ITEM item
+    (18) desc -> . APERTURA_DESC TXT CIERRE_DESC
+
+    APERTURA_DESC   shift and go to state 18
+
+    desc                           shift and go to state 81
+
+state 69
+
+    (9) item -> APERTURA_ITEM titulo desc . LINK CIERRE_ITEM
+    (11) item -> APERTURA_ITEM titulo desc . LINK CIERRE_ITEM item
+    (13) item -> APERTURA_ITEM titulo desc . LINK opc CIERRE_ITEM
+    (15) item -> APERTURA_ITEM titulo desc . LINK opc CIERRE_ITEM item
+    (17) LINK -> . APERTURA_LINK URL CIERRE_LINK
+
+    APERTURA_LINK   shift and go to state 17
+
+    LINK                           shift and go to state 82
+
+state 70
+
+    (20) categoria -> APERTURA_CAT TXT CIERRE_CAT .
+
+    APERTURA_ITEM   reduce using rule 20 (categoria -> APERTURA_CAT TXT CIERRE_CAT .)
+    CIERRE_ITEM     reduce using rule 20 (categoria -> APERTURA_CAT TXT CIERRE_CAT .)
+
+
+state 71
+
+    (22) copyright -> APERTURA_COPY TXT CIERRE_COPY .
+
+    APERTURA_ITEM   reduce using rule 22 (copyright -> APERTURA_COPY TXT CIERRE_COPY .)
+    CIERRE_ITEM     reduce using rule 22 (copyright -> APERTURA_COPY TXT CIERRE_COPY .)
+
+
+state 72
+
+    (24) image -> APERTURA_IMAG URL titulo . LINK CIERRE_IMAG
+    (25) image -> APERTURA_IMAG URL titulo . LINK opcimag CIERRE_IMAG
+    (17) LINK -> . APERTURA_LINK URL CIERRE_LINK
+
+    APERTURA_LINK   shift and go to state 17
+
+    LINK                           shift and go to state 83
+
+state 73
+
+    (32) lenguaje -> APERTURA_LANGUAGE TXT CIERRE_LANGUAGE .
+
+    APERTURA_ITEM   reduce using rule 32 (lenguaje -> APERTURA_LANGUAGE TXT CIERRE_LANGUAGE .)
+    CIERRE_ITEM     reduce using rule 32 (lenguaje -> APERTURA_LANGUAGE TXT CIERRE_LANGUAGE .)
+
+
+state 74
+
+    (34) webmaster -> APERTURA_WEBMASTER TXT CIERRE_WEBMASTER .
+
+    APERTURA_ITEM   reduce using rule 34 (webmaster -> APERTURA_WEBMASTER TXT CIERRE_WEBMASTER .)
+    CIERRE_ITEM     reduce using rule 34 (webmaster -> APERTURA_WEBMASTER TXT CIERRE_WEBMASTER .)
+
+
+state 75
+
+    (36) ultedit -> APERTURA_ULTEDIT TXT CIERRE_ULTEDIT .
+
+    APERTURA_ITEM   reduce using rule 36 (ultedit -> APERTURA_ULTEDIT TXT CIERRE_ULTEDIT .)
+    CIERRE_ITEM     reduce using rule 36 (ultedit -> APERTURA_ULTEDIT TXT CIERRE_ULTEDIT .)
+
+
+state 76
+
+    (38) autor -> APERTURA_AUTOR TXT CIERRE_AUTOR .
+
+    APERTURA_ITEM   reduce using rule 38 (autor -> APERTURA_AUTOR TXT CIERRE_AUTOR .)
+    CIERRE_ITEM     reduce using rule 38 (autor -> APERTURA_AUTOR TXT CIERRE_AUTOR .)
+
+
+state 77
+
+    (40) lastbuilddate -> APERTURA_BD TXT CIERRE_BD .
+
+    APERTURA_ITEM   reduce using rule 40 (lastbuilddate -> APERTURA_BD TXT CIERRE_BD .)
+    CIERRE_ITEM     reduce using rule 40 (lastbuilddate -> APERTURA_BD TXT CIERRE_BD .)
+
+
+state 78
+
+    (42) guid -> APERTURA_GUID TXT CIERRE_GUID .
+
+    APERTURA_ITEM   reduce using rule 42 (guid -> APERTURA_GUID TXT CIERRE_GUID .)
+    CIERRE_ITEM     reduce using rule 42 (guid -> APERTURA_GUID TXT CIERRE_GUID .)
+
+
+state 79
+
+    (44) ttl -> APERTURA_TTL TXT CIERRE_TTL .
+
+    APERTURA_ITEM   reduce using rule 44 (ttl -> APERTURA_TTL TXT CIERRE_TTL .)
+    CIERRE_ITEM     reduce using rule 44 (ttl -> APERTURA_TTL TXT CIERRE_TTL .)
+
+
+state 80
+
+    (7) canal -> APERTURA_CHANNEL titulo desc LINK opc item CIERRE_CHANNEL .
+
+    CIERRE_RSS      reduce using rule 7 (canal -> APERTURA_CHANNEL titulo desc LINK opc item CIERRE_CHANNEL .)
+
+
+state 81
+
+    (8) item -> APERTURA_ITEM titulo LINK desc . CIERRE_ITEM
+    (10) item -> APERTURA_ITEM titulo LINK desc . CIERRE_ITEM item
+    (12) item -> APERTURA_ITEM titulo LINK desc . opc CIERRE_ITEM
+    (14) item -> APERTURA_ITEM titulo LINK desc . opc CIERRE_ITEM item
+    (19) opc -> . categoria
+    (21) opc -> . copyright
+    (23) opc -> . image
+    (31) opc -> . lenguaje
+    (33) opc -> . webmaster
+    (35) opc -> . ultedit
+    (37) opc -> . autor
+    (39) opc -> . lastbuilddate
+    (41) opc -> . guid
+    (43) opc -> . ttl
+    (20) categoria -> . APERTURA_CAT TXT CIERRE_CAT
+    (22) copyright -> . APERTURA_COPY TXT CIERRE_COPY
+    (24) image -> . APERTURA_IMAG URL titulo LINK CIERRE_IMAG
+    (25) image -> . APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG
+    (32) lenguaje -> . APERTURA_LANGUAGE TXT CIERRE_LANGUAGE
+    (34) webmaster -> . APERTURA_WEBMASTER TXT CIERRE_WEBMASTER
+    (36) ultedit -> . APERTURA_ULTEDIT TXT CIERRE_ULTEDIT
+    (38) autor -> . APERTURA_AUTOR TXT CIERRE_AUTOR
+    (40) lastbuilddate -> . APERTURA_BD TXT CIERRE_BD
+    (42) guid -> . APERTURA_GUID TXT CIERRE_GUID
+    (44) ttl -> . APERTURA_TTL TXT CIERRE_TTL
+
+    CIERRE_ITEM     shift and go to state 84
+    APERTURA_CAT    shift and go to state 38
+    APERTURA_COPY   shift and go to state 39
+    APERTURA_IMAG   shift and go to state 40
+    APERTURA_LANGUAGE shift and go to state 41
+    APERTURA_WEBMASTER shift and go to state 42
+    APERTURA_ULTEDIT shift and go to state 43
+    APERTURA_AUTOR  shift and go to state 44
+    APERTURA_BD     shift and go to state 45
+    APERTURA_GUID   shift and go to state 46
+    APERTURA_TTL    shift and go to state 47
+
+    opc                            shift and go to state 85
+    categoria                      shift and go to state 28
+    copyright                      shift and go to state 29
+    image                          shift and go to state 30
+    lenguaje                       shift and go to state 31
+    webmaster                      shift and go to state 32
+    ultedit                        shift and go to state 33
+    autor                          shift and go to state 34
+    lastbuilddate                  shift and go to state 35
+    guid                           shift and go to state 36
+    ttl                            shift and go to state 37
+
+state 82
+
+    (9) item -> APERTURA_ITEM titulo desc LINK . CIERRE_ITEM
+    (11) item -> APERTURA_ITEM titulo desc LINK . CIERRE_ITEM item
+    (13) item -> APERTURA_ITEM titulo desc LINK . opc CIERRE_ITEM
+    (15) item -> APERTURA_ITEM titulo desc LINK . opc CIERRE_ITEM item
+    (19) opc -> . categoria
+    (21) opc -> . copyright
+    (23) opc -> . image
+    (31) opc -> . lenguaje
+    (33) opc -> . webmaster
+    (35) opc -> . ultedit
+    (37) opc -> . autor
+    (39) opc -> . lastbuilddate
+    (41) opc -> . guid
+    (43) opc -> . ttl
+    (20) categoria -> . APERTURA_CAT TXT CIERRE_CAT
+    (22) copyright -> . APERTURA_COPY TXT CIERRE_COPY
+    (24) image -> . APERTURA_IMAG URL titulo LINK CIERRE_IMAG
+    (25) image -> . APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG
+    (32) lenguaje -> . APERTURA_LANGUAGE TXT CIERRE_LANGUAGE
+    (34) webmaster -> . APERTURA_WEBMASTER TXT CIERRE_WEBMASTER
+    (36) ultedit -> . APERTURA_ULTEDIT TXT CIERRE_ULTEDIT
+    (38) autor -> . APERTURA_AUTOR TXT CIERRE_AUTOR
+    (40) lastbuilddate -> . APERTURA_BD TXT CIERRE_BD
+    (42) guid -> . APERTURA_GUID TXT CIERRE_GUID
+    (44) ttl -> . APERTURA_TTL TXT CIERRE_TTL
+
+    CIERRE_ITEM     shift and go to state 86
+    APERTURA_CAT    shift and go to state 38
+    APERTURA_COPY   shift and go to state 39
+    APERTURA_IMAG   shift and go to state 40
+    APERTURA_LANGUAGE shift and go to state 41
+    APERTURA_WEBMASTER shift and go to state 42
+    APERTURA_ULTEDIT shift and go to state 43
+    APERTURA_AUTOR  shift and go to state 44
+    APERTURA_BD     shift and go to state 45
+    APERTURA_GUID   shift and go to state 46
+    APERTURA_TTL    shift and go to state 47
+
+    opc                            shift and go to state 87
+    categoria                      shift and go to state 28
+    copyright                      shift and go to state 29
+    image                          shift and go to state 30
+    lenguaje                       shift and go to state 31
+    webmaster                      shift and go to state 32
+    ultedit                        shift and go to state 33
+    autor                          shift and go to state 34
+    lastbuilddate                  shift and go to state 35
+    guid                           shift and go to state 36
+    ttl                            shift and go to state 37
+
+state 83
+
+    (24) image -> APERTURA_IMAG URL titulo LINK . CIERRE_IMAG
+    (25) image -> APERTURA_IMAG URL titulo LINK . opcimag CIERRE_IMAG
+    (26) opcimag -> . height width
+    (27) opcimag -> . height
+    (28) opcimag -> . width
+    (29) height -> . APERTURA_HEIGHT NUM CIERRE_HEIGHT
+    (30) width -> . APERTURA_WIDTH NUM CIERRE_WIDTH
+
+    CIERRE_IMAG     shift and go to state 88
+    APERTURA_HEIGHT shift and go to state 92
+    APERTURA_WIDTH  shift and go to state 93
+
+    opcimag                        shift and go to state 89
+    height                         shift and go to state 90
+    width                          shift and go to state 91
+
+state 84
+
+    (8) item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM .
+    (10) item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM . item
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    CIERRE_CHANNEL  reduce using rule 8 (item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM .)
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 94
+
+state 85
+
+    (12) item -> APERTURA_ITEM titulo LINK desc opc . CIERRE_ITEM
+    (14) item -> APERTURA_ITEM titulo LINK desc opc . CIERRE_ITEM item
+
+    CIERRE_ITEM     shift and go to state 95
+
+
+state 86
+
+    (9) item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM .
+    (11) item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM . item
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    CIERRE_CHANNEL  reduce using rule 9 (item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM .)
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 96
+
+state 87
+
+    (13) item -> APERTURA_ITEM titulo desc LINK opc . CIERRE_ITEM
+    (15) item -> APERTURA_ITEM titulo desc LINK opc . CIERRE_ITEM item
+
+    CIERRE_ITEM     shift and go to state 97
+
+
+state 88
+
+    (24) image -> APERTURA_IMAG URL titulo LINK CIERRE_IMAG .
+
+    APERTURA_ITEM   reduce using rule 24 (image -> APERTURA_IMAG URL titulo LINK CIERRE_IMAG .)
+    CIERRE_ITEM     reduce using rule 24 (image -> APERTURA_IMAG URL titulo LINK CIERRE_IMAG .)
+
+
+state 89
+
+    (25) image -> APERTURA_IMAG URL titulo LINK opcimag . CIERRE_IMAG
+
+    CIERRE_IMAG     shift and go to state 98
+
+
+state 90
+
+    (26) opcimag -> height . width
+    (27) opcimag -> height .
+    (30) width -> . APERTURA_WIDTH NUM CIERRE_WIDTH
+
+    CIERRE_IMAG     reduce using rule 27 (opcimag -> height .)
+    APERTURA_WIDTH  shift and go to state 93
+
+    width                          shift and go to state 99
+
+state 91
+
+    (28) opcimag -> width .
+
+    CIERRE_IMAG     reduce using rule 28 (opcimag -> width .)
+
+
+state 92
+
+    (29) height -> APERTURA_HEIGHT . NUM CIERRE_HEIGHT
+
+    NUM             shift and go to state 100
+
+
+state 93
+
+    (30) width -> APERTURA_WIDTH . NUM CIERRE_WIDTH
+
+    NUM             shift and go to state 101
+
+
+state 94
+
+    (10) item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM item .
+
+    CIERRE_CHANNEL  reduce using rule 10 (item -> APERTURA_ITEM titulo LINK desc CIERRE_ITEM item .)
+
+
+state 95
+
+    (12) item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM .
+    (14) item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM . item
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    CIERRE_CHANNEL  reduce using rule 12 (item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM .)
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 102
+
+state 96
+
+    (11) item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM item .
+
+    CIERRE_CHANNEL  reduce using rule 11 (item -> APERTURA_ITEM titulo desc LINK CIERRE_ITEM item .)
+
+
+state 97
+
+    (13) item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM .
+    (15) item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM . item
+    (8) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM
+    (9) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM
+    (10) item -> . APERTURA_ITEM titulo LINK desc CIERRE_ITEM item
+    (11) item -> . APERTURA_ITEM titulo desc LINK CIERRE_ITEM item
+    (12) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM
+    (13) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM
+    (14) item -> . APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item
+    (15) item -> . APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item
+
+    CIERRE_CHANNEL  reduce using rule 13 (item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM .)
+    APERTURA_ITEM   shift and go to state 27
+
+    item                           shift and go to state 103
+
+state 98
+
+    (25) image -> APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG .
+
+    APERTURA_ITEM   reduce using rule 25 (image -> APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG .)
+    CIERRE_ITEM     reduce using rule 25 (image -> APERTURA_IMAG URL titulo LINK opcimag CIERRE_IMAG .)
+
+
+state 99
+
+    (26) opcimag -> height width .
+
+    CIERRE_IMAG     reduce using rule 26 (opcimag -> height width .)
+
+
+state 100
+
+    (29) height -> APERTURA_HEIGHT NUM . CIERRE_HEIGHT
+
+    CIERRE_HEIGHT   shift and go to state 104
+
+
+state 101
+
+    (30) width -> APERTURA_WIDTH NUM . CIERRE_WIDTH
+
+    CIERRE_WIDTH    shift and go to state 105
+
+
+state 102
+
+    (14) item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item .
+
+    CIERRE_CHANNEL  reduce using rule 14 (item -> APERTURA_ITEM titulo LINK desc opc CIERRE_ITEM item .)
+
+
+state 103
+
+    (15) item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item .
+
+    CIERRE_CHANNEL  reduce using rule 15 (item -> APERTURA_ITEM titulo desc LINK opc CIERRE_ITEM item .)
+
+
+state 104
+
+    (29) height -> APERTURA_HEIGHT NUM CIERRE_HEIGHT .
+
+    APERTURA_WIDTH  reduce using rule 29 (height -> APERTURA_HEIGHT NUM CIERRE_HEIGHT .)
+    CIERRE_IMAG     reduce using rule 29 (height -> APERTURA_HEIGHT NUM CIERRE_HEIGHT .)
+
+
+state 105
+
+    (30) width -> APERTURA_WIDTH NUM CIERRE_WIDTH .
+
+    CIERRE_IMAG     reduce using rule 30 (width -> APERTURA_WIDTH NUM CIERRE_WIDTH .)
+

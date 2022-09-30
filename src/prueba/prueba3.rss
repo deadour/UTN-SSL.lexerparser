@@ -1,0 +1,16 @@
+ <?xml version="1.0" encoding="UTF-8" ?>
+ <rss version="2.0">
+ <channel>
+  <title>Infobae</title>
+  <description>Noticias</description>
+  <link>http://www.infobae.com/</link>
+<lastBuildDate>Lunes, 06 Junio </lastBuildDate>
+  <item>
+   <title>Boca campeón de la SuperCopa</title>
+   <description>Una vez mas el mejor equipo del planeta salio campeón</description>
+   <link>https://www.infobae.com/tag/boca-campeon/</link>
+     <pubDate>Lunes, 06 Junio 2013 00:01:00 +00:00</pubDate>
+  </item>
+
+</channel>
+ </rss>
